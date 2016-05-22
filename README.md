@@ -59,58 +59,61 @@ Task targets, files and options may be specified according to the grunt [Configu
 
 ### Example Task Configuration
 ```js
-{
-    // Default options
-    options: {
-        // Task specific options
-        traceFatal: true, // (0|false)|(1|true)|2
-        // Docma specific config
-        // See all @ https://github.com/onury/docma
-        config: {
-            jsdoc: {
-                encoding: 'utf8',
-                recurse: false,
-                pedantic: false,
-                access: null, // ['private'],
-                package: null,
-                module: true,
-                undocumented: false,
-                undescribed: false,
-                hierarchy: true,
-                sort: 'grouped',
-                // 'relativePath': '../code',
-                filter: null
-            },
-            dump: true
-        }
-    },
-    code: {
-        // target specific options
+grunt.initConfig({
+    docma: {
+        // Default options
         options: {
-            // Docma config
+            // Task specific options
+            traceFatal: true, // (0|false)|(1|true)|2
+            // Docma specific config
+            // See all @ https://github.com/onury/docma
             config: {
-                template: {
-                    path: 'default',
-                    document: {
-                        title: 'Code Docs'
-                    },
-                    // See all template options @ https://github.com/onury/docma/tree/master/templates/default
-                    options: {
-                        sidebar: true,
-                        collapsed: false,
-                        search: true,
-                        navbar: true
-                    }
-                }
+                jsdoc: {
+                    encoding: 'utf8',
+                    recurse: false,
+                    pedantic: false,
+                    access: null, // ['private'],
+                    package: null,
+                    module: true,
+                    undocumented: false,
+                    undescribed: false,
+                    hierarchy: true,
+                    sort: 'grouped',
+                    // 'relativePath': '../code',
+                    filter: null
+                },
+                dump: true
             }
         },
-        // files to be processed
-        src: [
-            './test/code/**/*.js'
-        ],
-        dest: './test/doc-code'
+        code: {
+            // target specific options
+            options: {
+                // Docma config
+                config: {
+                    template: {
+                        path: 'default',
+                        document: {
+                            title: 'Documentation'
+                        },
+                        // See all default-template options @
+                        // https://github.com/onury/docma/tree/master/templates/default
+                        options: {
+                            sidebar: true,
+                            collapsed: false,
+                            search: true,
+                            navbar: true
+                        }
+                    }
+                }
+            },
+            // files to be processed
+            src: [
+                './test/code/**/*.js'
+            ],
+            dest: './test/doc'
+        }
     }
-}
+});
 ```
 
 ---
@@ -119,6 +122,7 @@ Task targets, files and options may be specified according to the grunt [Configu
 
 #### v0.5.1
 - Added config from file support.
+- Minor revisions.
 
 ---
 

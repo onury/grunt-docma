@@ -17,11 +17,8 @@ module.exports = function (grunt) {
         Promise = require('bluebird'),
         stripJsonComments = require('strip-json-comments');
 
+    // vars
     var promiseReadFile = Promise.promisify(fs.readFile);
-
-    // --------------------------------
-    //  UTILITY METHODS
-    // --------------------------------
 
     // --------------------------------
     //  TASK DEFINITION
@@ -76,12 +73,16 @@ module.exports = function (grunt) {
             grunt.option('stack', true);
         }
 
-        // grunt.log.writeln('conf', conf);
+        // TASK ROUTINE
+
         var docmaConfig;
 
         Promise.resolve()
             .then(function () {
                 if (typeof options.config === 'string') {
+                    // we could use `Docma.fromFile()` but in this grunt task,
+                    // `src` and `dest` properties might be defined within the
+                    // task.options rather than in the file.
                     return promiseReadFile(options.config)
                         .then(function (json) {
                             return JSON.parse(stripJsonComments(json));
@@ -90,10 +91,14 @@ module.exports = function (grunt) {
                 return options.config || {};
             })
             .then(function (docmaConf) {
-                docmaConfig = _.defaultsDeep(docmaConf, {
-                    src: conf.src,
-                    dest: conf.dest
-                });
+                if (conf.src && conf.dest) {
+                    docmaConfig = _.defaultsDeep(docmaConf, {
+                        src: conf.src,
+                        dest: conf.dest
+                    });
+                } else {
+                    docmaConfig = docmaConf;
+                }
                 return Docma.create(docmaConfig).build();
             })
             .then(function () {
@@ -104,7 +109,7 @@ module.exports = function (grunt) {
                 grunt.log.writeln(name + 'ocumentation is successfully built @ ' + docmaConfig.dest);
             })
             .catch(function (error) {
-                grunt.log.error(error);
+                grunt.log.error(error.stack || error);
             })
             .finally(taskComplete);
 
