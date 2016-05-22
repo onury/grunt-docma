@@ -1,0 +1,66 @@
+# Config for grunt-docma
+# https://github.com/onury/grunt-docma
+# https://github.com/onury/docma
+{
+    # Default options
+    options: {
+        # Task specific options
+        traceFatal: true,           # (0|false)|(1|true)|2
+        # Docma specific config
+        # See all @ https://github.com/onury/docma
+        config: {
+            jsdoc: {
+                encoding: 'utf8',
+                recurse: false,
+                pedantic: false,
+                access: null, # ['private'],
+                package: null,
+                module: true,
+                undocumented: false,
+                undescribed: false,
+                hierarchy: true,
+                sort: 'grouped',
+                # 'relativePath': '../code',
+                filter: null
+            },
+            dump: true
+        }
+    },
+    code: {
+        # target specific options
+        options: {
+            # Docma config
+            config: {
+                template: {
+                    path: 'default',
+                    document: {
+                        title: 'Code Docs'
+                    },
+                    options: {}
+                }
+            }
+        },
+        # files to be processed
+        src: [
+            './test/code/**/*.js'
+        ],
+        dest: './test/doc-code'
+    },
+    other: {
+        # target specific options
+        options: {
+            # Docma config
+            config: {
+                template: {
+
+                    options: {}
+                }
+            }
+        },
+        # files to be processed
+        src: [
+            './test/code/src/lib/**/*.js'
+        ],
+        dest: './test/doc-other'
+    }
+}
