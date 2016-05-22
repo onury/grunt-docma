@@ -1,6 +1,6 @@
 {
   "name": "grunt-docma",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Grunt task for Docma JSDoc documentation generator.",
   "license": "MIT",
   "author": {
