@@ -58,6 +58,8 @@ Task targets and options may be specified according to the grunt [Configuring ta
 
 _Note that, if you set `config` option to a config-file path, you can also define `src` and `dest` within that configuration file. But if you additionally define these within the task configuration, it will be used instead._
 
+**CAUTION:** Destination directory (`dest`) will be emptied before the build. Make sure you set `dest` to a correct path.
+
 ### Example Task Configuration
 ```js
 grunt.initConfig({
@@ -101,6 +103,7 @@ grunt.initConfig({
                         options: {
                             sidebar: true,
                             collapsed: false,
+                            badges: true,
                             search: true,
                             navbar: true
                         }

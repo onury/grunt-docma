@@ -52,14 +52,15 @@
             # Docma config
             config: {
                 template: {
-
-                    options: {}
+                    options: {
+                        badges: false
+                    }
                 }
             }
         },
         # files to be processed
         src: [
-            './test/code/src/lib/**/*.js'
+            './test/code/src/lib/*.js'
         ],
         dest: './test/doc-other'
     },
@@ -78,7 +79,7 @@
         },
         # files to be processed (overwrites src and dest defined in config file)
         src: [
-            './test/code/src/lib/**/*.js'
+            './test/code/src/lib/*.js'
         ],
         dest: './test/doc-from-file-2'
     },
