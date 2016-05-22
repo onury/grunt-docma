@@ -7,10 +7,17 @@ module.exports = function (grunt) {
     'use strict';
 
     // Own modules
+    var fs = require('fs');
+
+    // Own modules
     var Docma = require('docma');
 
     // Dep modules
-    var _ = require('lodash');
+    var _ = require('lodash'),
+        Promise = require('bluebird'),
+        stripJsonComments = require('strip-json-comments');
+
+    var promiseReadFile = Promise.promisify(fs.readFile);
 
     // --------------------------------
     //  UTILITY METHODS
@@ -70,13 +77,25 @@ module.exports = function (grunt) {
         }
 
         // grunt.log.writeln('conf', conf);
-        var docmaConfig = _.defaultsDeep(options.config, {
-            src: conf.src,
-            dest: conf.dest
-        });
+        var docmaConfig;
 
-        var docma = new Docma(docmaConfig);
-        docma.build()
+        Promise.resolve()
+            .then(function () {
+                if (typeof options.config === 'string') {
+                    return promiseReadFile(options.config)
+                        .then(function (json) {
+                            return JSON.parse(stripJsonComments(json));
+                        });
+                }
+                return options.config || {};
+            })
+            .then(function (docmaConf) {
+                docmaConfig = _.defaultsDeep(docmaConf, {
+                    src: conf.src,
+                    dest: conf.dest
+                });
+                return Docma.create(docmaConfig).build();
+            })
             .then(function () {
                 var name = _.get(docmaConfig, 'template.document.title')
                     || _.get(docmaConfig, 'template.options.title')

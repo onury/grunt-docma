@@ -37,10 +37,12 @@
     "LICENSE"
   ],
   "dependencies": {
+    "bluebird": "^3.4.0",
     "docma": "^0.5.3",
     "eslint": "^2.10.2",
     "eslint-config-xo": "^0.14.1",
     "grunt": "^1.0.1",
-    "lodash": "^4.12.0"
+    "lodash": "^4.12.0",
+    "strip-json-comments": "^2.0.1"
   }
 }

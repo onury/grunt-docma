@@ -113,4 +113,17 @@ Task targets, files and options may be specified according to the grunt [Configu
 }
 ```
 
+---
+
+### Change Log
+
+#### v0.5.1
+- Added config from file support.
+
+---
+
+### License
+
+MIT.
+
 [docma]:https://github.com/onury/docma
