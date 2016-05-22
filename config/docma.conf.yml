@@ -62,5 +62,24 @@
             './test/code/src/lib/**/*.js'
         ],
         dest: './test/doc-other'
-    }
+    },
+    fromFile: {
+        # target specific options
+        options: {
+            # Docma config file (src and dest defined in file)
+            config: './test/docma.config.json'
+        }
+    },
+    fromFile2: {
+        # target specific options
+        options: {
+            # Docma config file
+            config: './test/docma.config.json'
+        },
+        # files to be processed (overwrites src and dest defined in config file)
+        src: [
+            './test/code/src/lib/**/*.js'
+        ],
+        dest: './test/doc-from-file-2'
+    },
 }

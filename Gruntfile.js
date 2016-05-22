@@ -10,7 +10,8 @@ module.exports = function (grunt) {
     // grunt.loadNpmTasks('grunt-docma');
     grunt.loadTasks('tasks');
 
-    grunt.registerTask('default', ['docma:code', 'docma:other']);
+    grunt.registerTask('default', ['docma']); // all
     grunt.registerTask('single', ['docma:code']);
+    grunt.registerTask('from-file', ['docma:fromFile', 'docma:fromFile2']);
 
 };

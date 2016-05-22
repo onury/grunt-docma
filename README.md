@@ -27,7 +27,7 @@ grunt.loadNpmTasks('grunt-docma');
 
 _Run this task with the `grunt docma` command._  
 
-Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
+Task targets and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ### Task Options
 
@@ -56,6 +56,7 @@ Task targets, files and options may be specified according to the grunt [Configu
     </tr>
 </table>
 
+_Note that, if you set `config` option to a config-file path, you can also define `src` and `dest` within that configuration file. But if you additionally define these within the task configuration, it will be used instead._
 
 ### Example Task Configuration
 ```js
@@ -111,6 +112,16 @@ grunt.initConfig({
                 './test/code/**/*.js'
             ],
             dest: './test/doc'
+        },
+        fromFile: {
+            options: {
+                config: './test/docma.config.json'
+            },
+            // overwrites src and dest defined in config file, if any.
+            src: [
+                './test/code/**/*.js'
+            ],
+            dest: './test/doc2'
         }
     }
 });
@@ -120,8 +131,9 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v0.5.1
+#### v0.5.2
 - Added config from file support.
+- Updated Docma core.
 - Minor revisions.
 
 ---

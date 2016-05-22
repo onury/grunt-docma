@@ -21,6 +21,21 @@ module.exports = function (grunt) {
     var promiseReadFile = Promise.promisify(fs.readFile);
 
     // --------------------------------
+    //  HELPER METHODS
+    // --------------------------------
+
+    // fs.exists does not conform to the common Node callback
+    // signature (i.e. function (err, result) {..}). So instead of
+    // using .promisify(), we'll write the long version.
+    function promiseExists(filePath, callback) {
+        return new Promise(function (resolve, reject) {
+            fs.exists(filePath, function (exists) {
+                resolve(exists);
+            });
+        });
+    }
+
+    // --------------------------------
     //  TASK DEFINITION
     // --------------------------------
 
@@ -80,25 +95,37 @@ module.exports = function (grunt) {
         Promise.resolve()
             .then(function () {
                 if (typeof options.config === 'string') {
+                    grunt.verbose.writeln('Building from config file: ' + options.config);
                     // we could use `Docma.fromFile()` but in this grunt task,
                     // `src` and `dest` properties might be defined within the
                     // task.options rather than in the file.
-                    return promiseReadFile(options.config)
+                    return promiseExists(options.config)
+                        .then(function (exists) {
+                            if (!exists) {
+                                throw new Error('Config file does not exist: ' + options.config);
+                            }
+                            // grunt.verbose.writeln('Config file exists: ' + options.config);
+                            return promiseReadFile(options.config, 'utf8');
+                        })
                         .then(function (json) {
-                            return JSON.parse(stripJsonComments(json));
+                            var parsed = JSON.parse(stripJsonComments(json));
+                            grunt.verbose.writeln('Config file parsed...');
+                            return parsed;
                         });
                 }
                 return options.config || {};
             })
             .then(function (docmaConf) {
                 if (conf.src && conf.dest) {
-                    docmaConfig = _.defaultsDeep(docmaConf, {
+                    docmaConfig = _.defaultsDeep({
                         src: conf.src,
                         dest: conf.dest
-                    });
+                    }, docmaConf);
                 } else {
                     docmaConfig = docmaConf;
                 }
+                grunt.verbose.writeln('Building with configuration:');
+                grunt.verbose.writeln(JSON.stringify(docmaConfig));
                 return Docma.create(docmaConfig).build();
             })
             .then(function () {
@@ -106,7 +133,7 @@ module.exports = function (grunt) {
                     || _.get(docmaConfig, 'template.options.title')
                     || '';
                 name = name ? '"' + name + '" d' : 'D';
-                grunt.log.writeln(name + 'ocumentation is successfully built @ ' + docmaConfig.dest);
+                grunt.log.ok(name + 'ocumentation is successfully built @ ' + docmaConfig.dest);
             })
             .catch(function (error) {
                 grunt.log.error(error.stack || error);
