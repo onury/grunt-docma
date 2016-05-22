@@ -6,7 +6,7 @@
 module.exports = function (grunt) {
     'use strict';
 
-    // Own modules
+    // Core modules
     var fs = require('fs');
 
     // Own modules
@@ -95,21 +95,22 @@ module.exports = function (grunt) {
         Promise.resolve()
             .then(function () {
                 if (typeof options.config === 'string') {
-                    grunt.verbose.writeln('Building from config file: ' + options.config);
+                    grunt.verbose.writeln('Building from configuration file: ' + options.config);
                     // we could use `Docma.fromFile()` but in this grunt task,
                     // `src` and `dest` properties might be defined within the
-                    // task.options rather than in the file.
+                    // task.options rather than in the file (or
+                    // task.options.config).
                     return promiseExists(options.config)
                         .then(function (exists) {
                             if (!exists) {
-                                throw new Error('Config file does not exist: ' + options.config);
+                                throw new Error('Configuration file does not exist: ' + options.config);
                             }
                             // grunt.verbose.writeln('Config file exists: ' + options.config);
                             return promiseReadFile(options.config, 'utf8');
                         })
                         .then(function (json) {
                             var parsed = JSON.parse(stripJsonComments(json));
-                            grunt.verbose.writeln('Config file parsed...');
+                            grunt.verbose.writeln('Configuration file parsed...');
                             return parsed;
                         });
                 }
