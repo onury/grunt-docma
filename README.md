@@ -85,7 +85,7 @@ grunt.initConfig({
                     // 'relativePath': '../code',
                     filter: null
                 },
-                dump: true
+                debug: 0
             }
         },
         code: {
