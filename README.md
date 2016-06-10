@@ -95,9 +95,6 @@ grunt.initConfig({
                 config: {
                     template: {
                         path: 'default',
-                        document: {
-                            title: 'Documentation'
-                        },
                         // See all default-template options @
                         // https://github.com/onury/docma/tree/master/templates/default
                         options: {
@@ -107,6 +104,10 @@ grunt.initConfig({
                             search: true,
                             navbar: true
                         }
+                    },
+                    app: {
+                        title: 'Documentation',
+                        routing: 'query'
                     }
                 }
             },
@@ -134,10 +135,20 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v0.5.2
+#### v0.6.0
+- Updated Docma to initial release version 1.0.0. See [Docma documentation][docma-doc] for (**breaking**) changes.
+
+#### v0.5.3
+- Task fails and aborts with stack and warnings instead of outputting only the stack.
+- Updated tests.
+
+#### v0.5.2 (2016-05-22)
 - Added config from file support.
 - Updated Docma core.
 - Minor revisions.
+
+#### v0.5.0 (2016-05-20)
+- Initial commit.
 
 ---
 
@@ -146,3 +157,4 @@ grunt.initConfig({
 MIT.
 
 [docma]:https://github.com/onury/docma
+[docma-doc]:https://onury.github.io/docma

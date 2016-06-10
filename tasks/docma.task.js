@@ -127,17 +127,17 @@ module.exports = function (grunt) {
                 }
                 grunt.verbose.writeln('Building with configuration:');
                 grunt.verbose.writeln(JSON.stringify(docmaConfig));
-                return Docma.create(docmaConfig).build();
+                return Docma.create().build(docmaConfig);
             })
             .then(function () {
-                var name = _.get(docmaConfig, 'template.document.title')
+                var name = _.get(docmaConfig, 'template.app.title')
                     || _.get(docmaConfig, 'template.options.title')
                     || '';
                 name = name ? '"' + name + '" d' : 'D';
                 grunt.log.ok(name + 'ocumentation is successfully built @ ' + docmaConfig.dest);
             })
             .catch(function (error) {
-                grunt.log.error(error.stack || error);
+                grunt.fail.warn(error.stack || error);
             })
             .finally(taskComplete);
 
