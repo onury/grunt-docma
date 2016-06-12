@@ -135,6 +135,9 @@ grunt.initConfig({
 
 ### Change Log
 
+#### v0.6.1
+- Fix package version.
+
 #### v0.6.0
 - Updated Docma to initial release version 1.0.0. See [Docma documentation][docma-doc] for (**breaking**) changes.
 
