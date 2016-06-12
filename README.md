@@ -7,7 +7,7 @@
 
 > © 2016, Onur Yıldırım (@onury). MIT License.
 
-Grunt task for **[Docma][docma]**, a powerful JSDoc documentation generator with a cool template.
+Grunt task for **[Docma][docma]**, a powerful JSDoc and Markdown to HTML documentation generator, with a cool template. See [Docma documentation][docma-doc] for details and a live demo.
 
 ### Getting Started
 
