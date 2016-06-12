@@ -81,7 +81,7 @@ grunt.initConfig({
                     undocumented: false,
                     undescribed: false,
                     hierarchy: true,
-                    sort: 'grouped',
+                    sort: 'alphabetic',
                     // 'relativePath': '../code',
                     filter: null
                 },
