@@ -135,6 +135,9 @@ grunt.initConfig({
 
 ### Change Log
 
+#### v0.6.3
+- Updated dependencies (including **Docma**) to their latest versions.
+
 #### v0.6.1
 - Fix package version.
 
