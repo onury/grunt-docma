@@ -75,7 +75,7 @@ grunt.initConfig({
                     encoding: 'utf8',
                     recurse: false,
                     pedantic: false,
-                    access: null, // ['private'],
+                    access: null, // ['public', 'protected'],
                     package: null,
                     module: true,
                     undocumented: false,
@@ -88,6 +88,7 @@ grunt.initConfig({
                 debug: 0
             }
         },
+        // your task target
         code: {
             // target specific options
             options: {
@@ -117,6 +118,7 @@ grunt.initConfig({
             ],
             dest: './test/doc'
         },
+        // another task target that reads Docma config from file
         fromFile: {
             options: {
                 config: './test/docma.config.json'
