@@ -38,7 +38,7 @@
   ],
   "dependencies": {
     "bluebird": "^3.4.1",
-    "docma": "^1.1.1",
+    "docma": "^1.2.0",
     "grunt": "^1.0.1",
     "lodash": "^4.15.0",
     "strip-json-comments": "^2.0.1"
