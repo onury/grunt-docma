@@ -4,6 +4,7 @@
 ![release](https://img.shields.io/github/release/onury/grunt-docma.svg)
 ![dependencies](https://david-dm.org/onury/grunt-docma.svg)
 ![license](http://img.shields.io/npm/l/grunt-docma.svg)
+![maintained](https://img.shields.io/maintenance/yes/2016.svg)
 
 > © 2016, Onur Yıldırım (@onury). MIT License.
 
@@ -137,8 +138,8 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v0.6.5
-- Updated Docma core.
+#### v0.6.6
+- Updated Docma core and dependencies.
 
 #### v0.6.4
 - Updated dependencies (including **Docma**) to their latest versions.
