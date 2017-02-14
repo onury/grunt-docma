@@ -4,9 +4,9 @@
 ![release](https://img.shields.io/github/release/onury/grunt-docma.svg)
 ![dependencies](https://david-dm.org/onury/grunt-docma.svg)
 ![license](http://img.shields.io/npm/l/grunt-docma.svg)
-![maintained](https://img.shields.io/maintenance/yes/2016.svg)
+![maintained](https://img.shields.io/maintenance/yes/2017.svg)
 
-> © 2016, Onur Yıldırım (@onury). MIT License.
+> © 2017, Onur Yıldırım (@onury). MIT License.
 
 Grunt task for **[Docma][docma]**, a powerful JSDoc and Markdown to HTML documentation generator, with a cool template. See [Docma documentation][docma-doc] for details and a live demo.
 
@@ -137,6 +137,9 @@ grunt.initConfig({
 ---
 
 ### Change Log
+
+#### v0.6.8
+- Updated Docma core and dependencies.
 
 #### v0.6.6
 - Updated Docma core and dependencies.
