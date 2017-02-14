@@ -138,7 +138,7 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v0.6.8
+#### v0.6.9
 - Updated Docma core and dependencies.
 
 #### v0.6.6
