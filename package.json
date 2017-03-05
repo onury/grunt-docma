@@ -1,0 +1,50 @@
+{
+  "name": "grunt-docma",
+  "version": "0.6.9",
+  "description": "Grunt task for Docma JSDoc documentation generator.",
+  "license": "MIT",
+  "author": {
+    "name": "Onur Yıldırım",
+    "email": "onur@cutepilot.com"
+  },
+  "main": "tasks/docma.task.js",
+  "homepage": "https://github.com/onury/grunt-docma#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onury/grunt-docma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onury/grunt-docma/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docma",
+    "jsdoc",
+    "documentation",
+    "grunt",
+    "gruntplugin",
+    "node",
+    "code",
+    "generate",
+    "javascript",
+    "build",
+    "dogma"
+  ],
+  "files": [
+    "tasks",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "docma": "^1.4.5",
+    "grunt": "^1.0.1",
+    "lodash": "^4.17.4",
+    "strip-json-comments": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.0",
+    "eslint-config-xo": "^0.17.0"
+  }
+}
