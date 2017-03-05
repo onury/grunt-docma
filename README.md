@@ -84,7 +84,8 @@ grunt.initConfig({
                     hierarchy: true,
                     sort: 'alphabetic',
                     // 'relativePath': '../code',
-                    filter: null
+                    filter: null,
+                    plugins: []
                 },
                 debug: 0
             }
@@ -137,6 +138,9 @@ grunt.initConfig({
 ---
 
 ### Change Log
+
+#### v0.7.0
+- Updated Docma core and dependencies.
 
 #### v0.6.9
 - Updated Docma core and dependencies.
