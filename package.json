@@ -38,13 +38,13 @@
   ],
   "dependencies": {
     "bluebird": "^3.5.0",
-    "docma": "^1.4.5",
+    "docma": "^1.5.1",
     "grunt": "^1.0.1",
     "lodash": "^4.17.4",
     "strip-json-comments": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^3.17.0",
+    "eslint": "^3.17.1",
     "eslint-config-xo": "^0.17.0"
   }
 }
