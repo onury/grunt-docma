@@ -95,6 +95,7 @@ grunt.initConfig({
             // target specific options
             options: {
                 // Docma config
+                // See http://onury.github.io/docma/?api=docma#Docma~BuildConfiguration
                 config: {
                     template: {
                         path: 'default',
@@ -104,6 +105,8 @@ grunt.initConfig({
                             sidebar: true,
                             collapsed: false,
                             badges: true,
+                            outline: "flat",
+                            symbolMeta: false,
                             search: true,
                             navbar: true
                         }
@@ -138,6 +141,9 @@ grunt.initConfig({
 ---
 
 ### Change Log
+
+#### v0.7.5
+- Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
 
 #### v0.7.0
 - Updated Docma core and dependencies.
