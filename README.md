@@ -142,7 +142,7 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v0.7.5
+#### v0.8.0
 - Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
 
 #### v0.7.0
