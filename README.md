@@ -1,12 +1,22 @@
 # grunt-docma
 
-![npm](https://img.shields.io/npm/v/grunt-docma.svg)
-![release](https://img.shields.io/github/release/onury/grunt-docma.svg)
-![dependencies](https://david-dm.org/onury/grunt-docma.svg)
-![license](http://img.shields.io/npm/l/grunt-docma.svg)
-![maintained](https://img.shields.io/maintenance/yes/2017.svg)
+> © 2017, Onur Yıldırım ([@onury](https://github.com/onury)). MIT License.
 
-> © 2017, Onur Yıldırım (@onury). MIT License.
+## DEPRECATED!
+
+No need for this grunt task anymore. Since **[Docma][docma]** has a CLI; you can simply add Docma to your `scripts` section in your `package.json`:
+```js
+"scripts": {
+    "docs": "docma -c ./docma.config.json",
+    // your other scripts
+},
+```
+...and run:
+```sh
+npm run docs
+```
+
+---
 
 Grunt task for **[Docma][docma]**, a powerful JSDoc and Markdown to HTML documentation generator, with a cool template. See [Docma documentation][docma-doc] for details and a live demo.
 
@@ -105,9 +115,11 @@ grunt.initConfig({
                             sidebar: true,
                             collapsed: false,
                             badges: true,
-                            outline: "flat",
-                            symbolMeta: false,
                             search: true,
+                            toolbar: true,
+                            outline: "tree",
+                            animations: true,
+                            symbolMeta: false,
                             navbar: true
                         }
                     },
@@ -141,6 +153,10 @@ grunt.initConfig({
 ---
 
 ### Change Log
+
+#### v1.0.0
+- **Breaking Change**: Docma (core) now requires Node.js v6 or newer.
+- Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
 
 #### v0.8.0
 - Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
