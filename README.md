@@ -154,10 +154,6 @@ grunt.initConfig({
 
 ### Change Log
 
-#### v1.0.0
-- **Breaking Change**: Docma (core) now requires Node.js v6 or newer.
-- Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
-
 #### v0.8.0
 - Updated Docma core and dependencies. See [Docma](https://github.com/onury/docma) for changes.
 
