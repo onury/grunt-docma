@@ -7,7 +7,7 @@
 No need for this grunt task anymore. Since **[Docma][docma]** has a CLI; you can simply add Docma to your `scripts` section in your `package.json`:
 ```js
 "scripts": {
-    "docs": "docma -c ./docma.config.json",
+    "docs": "docma",
     // your other scripts
 },
 ```
